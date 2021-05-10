@@ -17,13 +17,13 @@ public class CachingConfig extends CachingConfigurerSupport {
 	public net.sf.ehcache.CacheManager ehCacheManager() {
 		CacheConfiguration tenSecondCache = new CacheConfiguration();
 		tenSecondCache.setName("ten-second-cache");
-		tenSecondCache.setMemoryStoreEvictionPolicy("LRU");
+		tenSecondCache.setMemoryStoreEvictionPolicy("LRU"); // LRU (or Least Recently Used)
 		tenSecondCache.setMaxEntriesLocalHeap(1000);
 		tenSecondCache.setTimeToLiveSeconds(10);
 
 		CacheConfiguration twentySecondCache = new CacheConfiguration();
 		twentySecondCache.setName("twenty-second-cache");
-		twentySecondCache.setMemoryStoreEvictionPolicy("LRU");
+		twentySecondCache.setMemoryStoreEvictionPolicy("LRU"); // LRU (or Least Recently Used)
 		twentySecondCache.setMaxEntriesLocalHeap(1000);
 		twentySecondCache.setTimeToLiveSeconds(60);
 

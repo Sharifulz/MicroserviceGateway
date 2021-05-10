@@ -21,7 +21,7 @@ public class ApiKeyEndpointsService {
 	// @CacheEvict(value = "twenty-second-cache", key =
 	// "'StudentInCache'+#studentId", condition = "#isCacheable == null ||
 	// !#isCacheable", beforeInvocation = true)
-	@Cacheable(value = "twenty-second-cache", key = "'StudentInCache'+#studentId", condition = "#isCacheable != null && #isCacheable")
+	@Cacheable(value = "ten-second-cache", key = "'StudentInCache'+#studentId", condition = "#isCacheable != null && #isCacheable")
 	public Optional<Student> fetchStudent(String studentId, boolean isCacheable) throws InterruptedException {
 		Thread.sleep(4000);
 		return Arrays
