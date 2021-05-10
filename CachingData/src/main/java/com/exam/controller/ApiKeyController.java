@@ -26,8 +26,11 @@ public class ApiKeyController {
 	@PostMapping("/get_api_keys")
 	public ResponseEntity<List<ApiKeyEndpointsModel>> getApiKeys(HttpServletRequest request,
 			@RequestParam(name = "apiKey") String apiKey, @RequestParam(name = "endPoint") String endPoint) {
+
 		List<ApiKeyEndpointsModel> apiKeys = apiKeyEndpointsService.validateApiKey(apiKey, endPoint);
-		System.out.println("Size-------------------> " + apiKeys.size());
+		System.out
+				.println("ApiKey " + apiKey + " Endpoint " + endPoint + " Size-------------------> " + apiKeys.size());
+
 		return new ResponseEntity<>(apiKeys, HttpStatus.OK);
 	}
 

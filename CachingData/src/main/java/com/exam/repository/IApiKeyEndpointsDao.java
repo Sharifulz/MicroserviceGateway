@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.exam.model.ApiKeyEndpointsModel;
 
 @Repository
-public interface IApiKeyDao extends JpaRepository<ApiKeyEndpointsModel, UUID> {
+public interface IApiKeyEndpointsDao extends JpaRepository<ApiKeyEndpointsModel, UUID> {
 
 	public List<ApiKeyEndpointsModel> findByApiKeyAndEndpoint(String apiKey, String endpoint);
 

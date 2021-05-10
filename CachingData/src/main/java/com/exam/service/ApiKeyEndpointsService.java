@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.exam.model.ApiKeyEndpointsModel;
 import com.exam.model.Student;
-import com.exam.repository.IApiKeyDao;
+import com.exam.repository.IApiKeyEndpointsDao;
 
 @Service
 public class ApiKeyEndpointsService {
 
 	@Autowired
-	IApiKeyDao apiKeyDao;
+	IApiKeyEndpointsDao apiKeyDao;
 
 	// @CacheEvict(value = "twenty-second-cache", key =
 	// "'StudentInCache'+#studentId", condition = "#isCacheable == null ||
@@ -30,9 +30,10 @@ public class ApiKeyEndpointsService {
 				.stream().filter(t -> t.getId().equalsIgnoreCase(studentId)).findFirst();
 	}
 
-	@Cacheable(value = "twenty-second-cache", key = "'ApiKeyInCache'+#apiKey")
-	public List<ApiKeyEndpointsModel> validateApiKey(String apiKey, String endpoint) {
-		return apiKeyDao.findByApiKeyAndEndpoint(apiKey, endpoint);
+	@Cacheable(value = "twenty-second-cache", key = "'ApiKeyInCache'+#apiKey+#endPoint")
+	public List<ApiKeyEndpointsModel> validateApiKey(String apiKey, String endPoint) {
+		List<ApiKeyEndpointsModel> apiKeys = apiKeyDao.findByApiKeyAndEndpoint(apiKey, endPoint);
+		return apiKeys;
 	}
 
 }

@@ -25,7 +25,7 @@ public class CachingConfig extends CachingConfigurerSupport {
 		twentySecondCache.setName("twenty-second-cache");
 		twentySecondCache.setMemoryStoreEvictionPolicy("LRU");
 		twentySecondCache.setMaxEntriesLocalHeap(1000);
-		twentySecondCache.setTimeToLiveSeconds(20);
+		twentySecondCache.setTimeToLiveSeconds(60);
 
 		net.sf.ehcache.config.Configuration config = new net.sf.ehcache.config.Configuration();
 		config.addCache(tenSecondCache);
